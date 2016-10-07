@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" >
+  </header>
+  <body>
+    <form action="/update" method="post">
+      <div class="col-sm-6">
+        <h1>Countdown Edit</h1>
+        <div class="form-group">
+          <label>Target</label><input class="form-control" name="target" type="text" value="<%= @data["target"] %>"><br>
+          <label>Pipeline</label><input class="form-control" name="pipeline" type="text" value="<%= @data["pipeline"] %>"><br>
+          <label>Current</label><input class="form-control" name="current" type="text" value="<%= @data["current"] %>"><br>
+          <label>Message</label><input class="form-control" name="message" type="text" value="<%= @data["message"] %>"><br>
+          <label>Name</label><input class="form-control" name="name" type="text" value="<%= @data["name"] %>"><br>
+          <input class="btn btn-primary" type="submit" >
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

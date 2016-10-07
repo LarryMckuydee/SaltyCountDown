@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:light&v1" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" >
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+      body{
+        width: 100%;
+        height: 98vh;
+        font-family: "Open Sans", sans-serif;
+        color: #5d5d5d;
+      }
+
+      h1{
+        font-size: 5em;
+      }
+
+      hr{
+        border-top: 1px solid #c7c7c7;
+      }
+
+      .sc-logo{
+        position: absolute;
+        width: auto;
+        height: 35px;
+        margin: 20px;
+      }
+
+      .progress{
+        height: 50px;
+      }
+
+      /*.footer{
+        background-color: #aaa;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid rgba(0, 0, 0, 0.26);
+        border-top: 1px solid white;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.26);
+      }
+
+      .col-4{
+        display: inline-block;
+        width: 25%;
+        border-right: 1px solid white;
+      }
+
+      .text-center{
+        text-align: center;
+      }
+
+      .footer.div{
+        border
+      }*/
+      .baba{
+        font-size: 24px;
+      }
+
+      .dragon-boat {
+        /*display: inline-table;*/
+        position: absolute;
+        /*transform: translate(-50%, -60%);*/
+        left: <%= @percentage.to_f - 2 %>%;
+        bottom: 180%;
+        width: 30px;
+        height: 30px;
+      }
+
+.flex {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+      .flex-progress {
+        width: 100%;
+ height: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+      }
+
+      .progress-tab{
+        /*height: 70%;*/
+        height: 0%;
+        width: 100%;
+        display: table !important;
+      }
+
+      .table-cell-it{
+        display: table-cell !important;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+.flex-middle {
+  width: 100%;
+}
+
+.flex-bottom {
+  /*align-self: flex-end;*/
+  height: 90%;
+}
+      .thing {
+       width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+      }
+
+      .message{
+        font-size: 3em;
+      }
+
+      .active-word{
+        color: #337ab7;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <img class="sc-logo" src="/img/logo.svg" >
+    </nav>
+    <div class="flex">
+    <div class="flex-progress flex-grow">
+    <div class="row progress-tab flex-middle">
+      <div class="col-sm-10 col-sm-offset-1 table-cell-it">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= @percentage %>%;">
+           </div>
+           <div class="dragon-boat">
+             <span class="baba active-word"><%= @data["current"] %>m</span><br>
+             <span class="baba active-word"><%= @percentage %>%</span><br>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row flex-bottom">
+      <div class="col-sm-12">
+        <div class="row" style="margin-bottom:40px; margin-top: -50px">
+          <div class="col-sm-12">
+            <div class="col-sm-4 text-center">
+              <h1 class="active-word">RM <%= @data["pipeline"] %>m</h1>
+              <h3>Pipeline</h3>
+            </div>
+            <div class="col-sm-4 text-center">
+              <h1 class="active-word">RM <%= @data["target"].to_f - @data["current"].to_f %>m</h1>
+              <h3>To Go</h3>
+            </div>
+            <div class="col-sm-4 text-center">
+              <h1 class="active-word"><%= Date.parse('31/12/2016').mjd - Date.parse(Time.now.to_s).mjd %></h1>
+              <h3>Days To Go</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="col-sm-12 text-center">
+              <h1 class="message">"<%= @data["message"] %>"</h1>
+              <h3><%= @data["name"] %></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
