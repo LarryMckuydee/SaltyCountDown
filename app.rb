@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'json'
+
 get '/' do
   file = File.read(File.expand_path('../data.json', __FILE__))
   @data = JSON::parse(file)
