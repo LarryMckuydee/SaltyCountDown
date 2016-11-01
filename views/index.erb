@@ -4,7 +4,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:light&v1" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" >
-    <meta http-equiv="refresh" content="300"> 
+    <meta http-equiv="refresh" content="300">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <style>
       body{
@@ -157,7 +157,7 @@ flex-direction: column;
             </div>
             <div class="dragon-boat">
               <span class="baba active-word"><%= @data["current"] %>m</span><br>
-              <span class="baba active-word"><%= @percentage %>%</span><br>
+              <span class="baba active-word"><%= @percentage.round(2) %>%</span><br>
             </div>
           </div>
         </div>
@@ -171,7 +171,7 @@ flex-direction: column;
               <h3>Pipeline</h3>
             </div>
             <div class="col-sm-4 text-center">
-              <h1 class="active-word">RM <%= @data["target"].to_f - @data["current"].to_f %>m</h1>
+              <h1 class="active-word">RM <%= (@data["target"].to_f - @data["current"].to_f).round(3) %>m</h1>
               <h3>To Go</h3>
             </div>
             <div class="col-sm-4 text-center">
